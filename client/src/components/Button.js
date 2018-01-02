@@ -4,7 +4,7 @@ const Button = ({ text, onClick }) => {
     return (
         <button
             type='submit'
-            className='btn btn-primary'
+            className='btn'
             onClick={onClick}>
             {text}
         </button>

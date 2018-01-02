@@ -8,16 +8,17 @@ class Inputs extends Component {
             return (
                 <div
                     key={country.name}
-                    className='form-check form-check-inline'
+                    className='guess-container'
                 >
-                    <label className='form-check-label'>
-                        <input
-                            className='form-check-input'
-                            type='radio'
-                            value={country.name}
-                            name='countryGuess'
-                            onChange={onGuessChange}
-                        />
+                    <input
+                        className='input'
+                        type='radio'
+                        value={country.name}
+                        name='countryGuess'
+                        id={country.name}
+                        onChange={onGuessChange}
+                    />
+                    <label for={country.name} className='input-label'>
                         {country.name}                    
                     </label>
                 </div>
@@ -25,7 +26,7 @@ class Inputs extends Component {
         })
 
         return (
-            <div>
+            <div className='inputs-container'>
                 {countryInputs}
             </div>
         )

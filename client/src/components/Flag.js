@@ -6,13 +6,13 @@ class Flag extends Component {
 
         let flag;
         if(flagContent.flag) {
-            flag = <img src={flagContent.flag} className="rounded mx-auto d-block" alt={flagContent.name}/>
+            flag = <img src={flagContent.flag} className="flag-img" alt={flagContent.name}/>
         } else {
-            flag = <div className='justify-content-center'>Loading...</div>
+            flag = <div className=''>Loading...</div>
         }
 
         return (
-            <div className="col-12">
+            <div className="flag-container">
                 {flag}
             </div>
         )

@@ -3,12 +3,12 @@ import React from 'react';
 const Answer = ({ correctAnswer, guessedAnswer }) => {
     if(correctAnswer === guessedAnswer) {
         return (
-            <div className='form-check form-check-inline'>You've answered correctly</div>
+            <div className=''>You've answered correctly</div>
         )
     }
 
     return (
-        <div className='form-check form-check-inline'>
+        <div className=''>
             {`Wrong, ${correctAnswer} was the right answer.`}
         </div>
     )

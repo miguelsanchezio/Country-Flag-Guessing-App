@@ -65,33 +65,29 @@ class Content extends Component {
 	render() {
 
 		return (
-			<div className='container'>
-				<div className='row justify-content-center'>
-					<div className='col-12'>
-						<form className='form-inline justify-content-center'>
-                            {!this.state.gameOver ?
-                            <Inputs
-                                countries={this.state.countries}
-                                onGuessChange={this.handleChange}
-                            /> :
-                            <Answer
-                                correctAnswer={this.state.correctAnswer.name}
-                                guessedAnswer={this.state.guess}
-                            />}
-                            {!this.state.gameOver ?
-                            <Button
-                                text={'Guess'}
-                                onClick={this.handleGuess}
-                            /> :
-                            <Button
-                                text={'Next'}
-                                onClick={this.handleNext}
-                            />}
-						</form>
-					</div>
-                    <Flag flagContent={this.state.correctAnswer}/>
-				</div>
-			</div>
+            <div className='content-container'>
+                <form className='form'>
+                    {!this.state.gameOver ?
+                    <Inputs
+                        countries={this.state.countries}
+                        onGuessChange={this.handleChange}
+                    /> :
+                    <Answer
+                        correctAnswer={this.state.correctAnswer.name}
+                        guessedAnswer={this.state.guess}
+                    />}
+                    {!this.state.gameOver ?
+                    <Button
+                        text={'Guess'}
+                        onClick={this.handleGuess}
+                    /> :
+                    <Button
+                        text={'Next'}
+                        onClick={this.handleNext}
+                    />}
+                </form>
+                <Flag flagContent={this.state.correctAnswer}/>
+            </div>
 		)
 	}
 }
