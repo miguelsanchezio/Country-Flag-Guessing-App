@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Flag from './Flag';
 
 class Content extends Component {
 	constructor(props) {
@@ -115,17 +116,6 @@ class Content extends Component {
 		return <div className='form-check form-check-inline'>{`Wrong, ${this.state.correctAnswer.name} was the right answer.`}</div>
 	}
 
-	// Renders the flag component based on the state of correctAnswer
-	renderFlag() {
-		if(this.state.correctAnswer.flag) {
-			return (
-				<img src={this.state.correctAnswer.flag} className="rounded mx-auto d-block" alt={this.state.correctAnswer.name}/>
-			)
-		}
-
-		return <div className='justify-content-center'>Loading...</div>
-	}
-
 	render() {
 
 		return (
@@ -137,9 +127,7 @@ class Content extends Component {
 							{this.renderButton()}
 						</form>
 					</div>
-					<div className='col-12'>
-						{this.renderFlag()}
-					</div>
+                    <Flag flagContent={this.state.correctAnswer}/>
 				</div>
 			</div>
 		)
