@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Inputs extends Component {
     render() {
-        const { countries, gameStatus, onGuessChange } = this.props;
+        const { countries, onGuessChange } = this.props;
 
         const countryInputs = countries.map(country => {
             return (
