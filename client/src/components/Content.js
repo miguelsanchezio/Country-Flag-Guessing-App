@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Flag from './Flag';
 import Inputs from './Inputs';
+import Button from './Button';
 
 class Content extends Component {
 	constructor(props) {
@@ -66,19 +67,6 @@ class Content extends Component {
 		this.setState({ gameOver: false })
 	}
 
-	// Renders a guess button or next button depending on the state of gameOver
-	renderButton() {
-		const guessButton = <button type='submit' className='btn btn-primary' onClick={this.handleGuess}>Guess</button>
-
-		const nextButton = <button type='submit' className='btn btn-primary' onClick={this.handleNext}>Next</button>
-
-		if(this.state.gameOver) {
-			return nextButton;
-		} else {
-			return guessButton;
-		}
-	}
-
 	// Returns a different div based on the guess of the user
 	renderAnswer() {
 		if(this.state.correctAnswer.name === this.state.guess) {
@@ -99,7 +87,15 @@ class Content extends Component {
                                 countries={this.state.countries}
                                 onGuessChange={this.handleChange}
                             />
-							{this.renderButton()}
+                            {!this.state.gameOver ?
+                            <Button
+                                text={'Guess'}
+                                onClick={this.handleGuess}
+                            /> :
+                            <Button
+                                text={'Next'}
+                                onClick={this.handleNext}
+                            />}
 						</form>
 					</div>
                     <Flag flagContent={this.state.correctAnswer}/>
