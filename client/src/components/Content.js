@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Flag from './Flag';
 import Inputs from './Inputs';
 import Button from './Button';
+import Answer from './Answer';
 
 class Content extends Component {
 	constructor(props) {
@@ -20,12 +21,6 @@ class Content extends Component {
 		this.handleNext = this.handleNext.bind(this);
 
 	}
-
-	// componentDidMount() {
-	// 	fetch('https://restcountries.eu/rest/v2/all')
-	// 		.then(data => data.json())
-	// 		.then(countries => this.getRandomCountries(countries));
-	// }
 
 	componentDidMount() {
 		this.fetchCountries();
@@ -67,15 +62,6 @@ class Content extends Component {
 		this.setState({ gameOver: false })
 	}
 
-	// Returns a different div based on the guess of the user
-	renderAnswer() {
-		if(this.state.correctAnswer.name === this.state.guess) {
-			return <div className='form-check form-check-inline'>You've answered correctly</div>
-		}
-
-		return <div className='form-check form-check-inline'>{`Wrong, ${this.state.correctAnswer.name} was the right answer.`}</div>
-	}
-
 	render() {
 
 		return (
@@ -83,10 +69,15 @@ class Content extends Component {
 				<div className='row justify-content-center'>
 					<div className='col-12'>
 						<form className='form-inline justify-content-center'>
-							<Inputs
+                            {!this.state.gameOver ?
+                            <Inputs
                                 countries={this.state.countries}
                                 onGuessChange={this.handleChange}
-                            />
+                            /> :
+                            <Answer
+                                correctAnswer={this.state.correctAnswer.name}
+                                guessedAnswer={this.state.guess}
+                            />}
                             {!this.state.gameOver ?
                             <Button
                                 text={'Guess'}
