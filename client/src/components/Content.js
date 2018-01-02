@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Flag from './Flag';
+import Inputs from './Inputs';
 
 class Content extends Component {
 	constructor(props) {
@@ -65,35 +66,6 @@ class Content extends Component {
 		this.setState({ gameOver: false })
 	}
 
-	// Renders inputs if the state of gameOver is set to false, otherwise it returns the result of the guess
-	renderInputs() {
-		const { countries } = this.state;
-		const countryInputs = countries.map(country => {
-			return (
-				<div key={country.name} className='form-check form-check-inline'>
-					<label className='form-check-label'>
-						<input
-							className='form-check-input'
-							type='radio'
-							value={country.name}
-							name='countryGuess'
-							onChange={this.handleChange}
-						/>
-						{country.name}
-					</label>
-				</div>
-			)
-		})
-
-		const answer = this.renderAnswer();
-
-		if(!this.state.gameOver) {
-			return countryInputs;
-		} else {
-			return answer;
-		}
-	}
-
 	// Renders a guess button or next button depending on the state of gameOver
 	renderButton() {
 		const guessButton = <button type='submit' className='btn btn-primary' onClick={this.handleGuess}>Guess</button>
@@ -123,7 +95,10 @@ class Content extends Component {
 				<div className='row justify-content-center'>
 					<div className='col-12'>
 						<form className='form-inline justify-content-center'>
-							{this.renderInputs()}
+							<Inputs
+                                countries={this.state.countries}
+                                onGuessChange={this.handleChange}
+                            />
 							{this.renderButton()}
 						</form>
 					</div>
