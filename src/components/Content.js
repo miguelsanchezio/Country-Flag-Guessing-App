@@ -59,7 +59,11 @@ class Content extends Component {
 	handleNext(e) {
 		e.preventDefault();
 		this.fetchCountries();
-		this.setState({ gameOver: false })
+		this.setState({
+            gameOver: false,
+            correctAnswer: {},
+            countries: []
+        });
 	}
 
 	render() {

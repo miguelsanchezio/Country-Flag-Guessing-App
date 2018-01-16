@@ -11,7 +11,6 @@ class Inputs extends Component {
                     className='guess-container'
                 >
                     <input
-                        className='input'
                         type='radio'
                         value={country.name}
                         name='countryGuess'
@@ -19,7 +18,8 @@ class Inputs extends Component {
                         onChange={onGuessChange}
                     />
                     <label for={country.name} className='input-label'>
-                        {country.name}                    
+                        <span class="radio-button"></span>
+                        {country.name}
                     </label>
                 </div>
             )

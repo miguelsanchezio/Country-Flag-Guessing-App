@@ -8,7 +8,7 @@
 body {
     font-size: 16px;
     font-family: 'Rubik', sans-serif;
-    color: #777;
+    color: #2B2D42;
     font-weight: 400;
 }
 
@@ -35,8 +35,9 @@ body {
 }
 
 h1 {
-    font-size: 4.25em;
-    color: #21FA90;
+    font-size: 2.5em;
+    color: #EDF2F4;
+    text-align: center;
 }
 
 .content-container {
@@ -52,8 +53,9 @@ h1 {
             align-items: center;
     padding: 30px;
     width: 66%;
-    background-color: #21FA90;
+    background-color: #EDF2F4;
     border-radius: 5px;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .35);
 }
 
 .form {
@@ -67,19 +69,57 @@ h1 {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    text-align: center;
 }
+
+.form input {
+    display: none;
+}
+
 .inputs-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-}
-
-.guess-container {
-    margin-left: 15px;
+    flex-direction: column;
 }
 
 .input-label {
-    margin-left: 5px;
+    font-size: .9em;
+    cursor: pointer;
+    position: relative;
+}
+
+.radio-button {
+    height: 1rem;
+    width: 1rem;
+    border: 2px solid #2B2D42;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: -1.5em;
+    top: 0;
+}
+
+.radio-button::after {
+    content: "";
+    height: .5rem;
+    width: .5rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #2B2D42;
+    opacity: 0;
+    transition: all .2s;
+}
+
+.form input:checked ~ .input-label .radio-button:after {
+    opacity: 1;
+}
+
+.guess-container {
+    padding: 3px;
 }
 
 .btn {
@@ -88,14 +128,14 @@ h1 {
     padding: 10px;
     text-align: center;
     border-radius: 3px;
-    color: #21FA90;
+    color: #EDF2F4;
     background: #424651;
     border: none;
     font-size: 16px;
 }
 
 .btn:hover {
-    background: #3b3e45;
+    background: #2B2D42;
     -webkit-transition: .3s;
     transition: .3s;
 }
@@ -105,7 +145,20 @@ h1 {
 }
 
 .flag-img {
-    width: 500px;
+    width: 100%;
     border-radius: 5px;
-    border: 2px solid #424651;
+    box-shadow: 0 0 1rem rgba(0,0,0, .25);
+}
+
+.footer {
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+
+}
+
+.footer a {
+    color: #EDF2F4;
+    font-size: .8em;
+    text-decoration: none;
 }
