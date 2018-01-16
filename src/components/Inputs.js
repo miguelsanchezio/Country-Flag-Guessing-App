@@ -17,8 +17,8 @@ class Inputs extends Component {
                         id={country.name}
                         onChange={onGuessChange}
                     />
-                    <label for={country.name} className='input-label'>
-                        <span class="radio-button"></span>
+                    <label htmlFor={country.name} className='input-label'>
+                        <span className="radio-button"></span>
                         {country.name}
                     </label>
                 </div>
